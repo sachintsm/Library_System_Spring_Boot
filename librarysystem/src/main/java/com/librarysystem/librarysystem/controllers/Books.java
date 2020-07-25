@@ -24,7 +24,6 @@ public class Books {
     //Add book data to the table
     @PostMapping("/addbook")
     public String addBook(@RequestBody BooksDomain bookData){
-
         return bookServices.saveBook(bookData);
     }
 }

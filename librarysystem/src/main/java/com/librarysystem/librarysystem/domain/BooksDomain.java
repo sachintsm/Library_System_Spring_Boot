@@ -14,8 +14,19 @@ public class BooksDomain {
     @Column(name = "book_name")
     private String name;
 
+    @Column(name = "book_author")
+    private String author;
+
     @Column(name="book_stock")
     private Integer stock;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public Integer getStock() {
         return stock;

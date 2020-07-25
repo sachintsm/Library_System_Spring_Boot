@@ -24,7 +24,12 @@
                     <button type="submit" class="btn btn-primary">Issue Book</button>
                 </Form>
             </div>
-            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <Form action="AddBook">
+                    <button type="submit" class="btn btn-primary">Add Book</button>
+                </Form>
+            </div>
+            <div class="col-md-3"></div>
             <div class="col-md-5">
                 <div class="row">
                     <form onsubmit="event.preventDefault(); onFormSubmit();">
@@ -56,7 +61,7 @@
                         <tr>
                             <td>${data.id}</td>
                             <td>${data.name}</td>
-                            <td>${data.name}</td>
+                            <td>${data.author}</td>
                             <td>${data.stock}</td>
                             <td><a class="btn btn-warning" href="/edit">Edit Book</a></td>
                             <td><a class="btn btn-danger" href="/delete">Delete Book</a></td>
