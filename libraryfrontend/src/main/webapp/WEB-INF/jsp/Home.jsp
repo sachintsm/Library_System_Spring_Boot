@@ -1,12 +1,16 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
-    <meta charset="UTF-8"/>
-    <title>Welcome</title>
-    <script src="js/index.js"></script>
+    <title>Library System</title>
     <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
     <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body class="container-fluid">
 <div class="container">
@@ -16,7 +20,9 @@
     <div class="button-bar">
         <div class="row">
             <div class="col-md-2">
-                <button class="btn btn-primary">Issue Book</button>
+                <Form action="IssueBook">
+                    <button type="submit" class="btn btn-primary">Issue Book</button>
+                </Form>
             </div>
             <div class="col-md-5"></div>
             <div class="col-md-5">
@@ -46,14 +52,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Famous Five-1</td>
-                        <td>Sachin Muthumala</td>
-                        <td>10</td>
-                        <td><a class="btn btn-warning" href="/edit">Edit Book</a></td>
-                        <td><a class="btn btn-danger" href="/delete">Delete Book</a></td>
-                    </tr>
+                    <c:forEach items="${Book}" var="data">
+                        <tr>
+                            <td>${data.id}</td>
+                            <td>${data.name}</td>
+                            <td>${data.name}</td>
+                            <td>${data.stock}</td>
+                            <td><a class="btn btn-warning" href="/edit">Edit Book</a></td>
+                            <td><a class="btn btn-danger" href="/delete">Delete Book</a></td>
+                        </tr>
+                    </c:forEach>
+
                     </tbody>
                 </table>
             </div>
