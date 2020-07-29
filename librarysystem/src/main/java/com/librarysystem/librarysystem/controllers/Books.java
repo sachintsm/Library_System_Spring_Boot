@@ -13,17 +13,18 @@ public class Books {
 
     @Autowired
     private BookServices bookServices;
+    
 
     //get all books details
     @GetMapping("/getall")
     public List<BooksDomain> allBooks(){
 
         return bookServices.findAllBooks();
-    }
+    } 
 
     //Add book data to the table
     @PostMapping("/addbook")
-    public String addBook(@RequestBody BooksDomain bookData){
-        return bookServices.saveBook(bookData);
+    public BooksDomain addBook(@RequestBody BooksDomain bookData){
+        return bookServices.save(bookData);
     }
 }

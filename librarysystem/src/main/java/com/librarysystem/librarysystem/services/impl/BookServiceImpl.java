@@ -20,8 +20,9 @@ public class BookServiceImpl implements BookServices {
     }
 
     @Override
-    public String saveBook(BooksDomain bookdata) {
-        booksRepository.save(bookdata);
-        return "Book data successfully saved!";
+    public BooksDomain save(BooksDomain bookdata) {
+        return  booksRepository.save(bookdata);
     }
+    
+
 }

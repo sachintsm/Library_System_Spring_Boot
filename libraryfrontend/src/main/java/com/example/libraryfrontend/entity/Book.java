@@ -14,12 +14,12 @@ public class Book {
 //    @JsonProperty("stock")
 //    public Integer stock;
 
-    public Book( String name, String author, int stock) {
-//        this.id = id;
-        this.name = name;
-        this.author = author;
-        this.stock = stock;
-    }
+//    public Book( String name, String author, int stock) {
+////        this.id = id;
+//        this.name = name;
+//        this.author = author;
+//        this.stock = stock;
+//    }
 
 //    private Integer id;
     private String name;

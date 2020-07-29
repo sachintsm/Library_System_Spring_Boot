@@ -8,5 +8,7 @@ public interface BookServices {
 
     List<BooksDomain> findAllBooks();
 
-    String saveBook(BooksDomain bookdata);
+	BooksDomain save(BooksDomain bookdata);
+	
+   
 }
