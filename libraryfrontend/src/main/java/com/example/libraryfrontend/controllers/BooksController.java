@@ -1,24 +1,41 @@
 package com.example.libraryfrontend.controllers;
 
 import com.example.libraryfrontend.entity.Book;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.Console;
+import java.io.IOException;
+import java.util.Arrays;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.catalina.User;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class BooksController {
 
-    @GetMapping("/")
+    @GetMapping("/Home")
     public ModelAndView getHome() {
+  
+    	
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         String url = "http://localhost:8081/api/getall";
@@ -35,17 +52,31 @@ public class BooksController {
         modelAndView.addObject("Book", response.getBody());
         return modelAndView;
     }
+    
 
-    @PostMapping("/addBook")
-    public String addBook(){
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+    @RequestMapping("/addBook")
+    public RedirectView addBook(Book book){
+    		RestTemplate restTemplate = new RestTemplate();
+    	
+        	String url = "http://localhost:8081/api/addbook";
+        	ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url,book, Object.class);
 
-        Book book = new Book("a","b",1);
-        ResponseEntity<Book> responseEntity = restTemplate.postForEntity("http://localhost:8081/api/addbook",book, Book.class);
-        System.out.println(responseEntity.getBody());
-        return null;
+        	System.out.println(responseEntity); 
+
+            return new RedirectView("/Home");
+ 
+    }
+    
+
+    @RequestMapping("/addMe")
+    public String AddBook() {
+    	System.out.print("addBook");  
+    	return "AddBook";
+    }
+    
+    @RequestMapping("/cancel")
+    public RedirectView cancelAddBook() {
+    	return new RedirectView("/Home");
     }
 
 }

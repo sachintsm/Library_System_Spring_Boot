@@ -2,8 +2,11 @@ package com.librarysystem.librarysystem.domain;
 
 import javax.persistence.*;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 @Entity
 @Table(name="books")
+@EntityListeners(AuditingEntityListener.class)
 public class BooksDomain {
 
     @Id
