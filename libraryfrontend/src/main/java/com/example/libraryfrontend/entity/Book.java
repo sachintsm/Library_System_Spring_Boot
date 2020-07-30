@@ -4,22 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
-//
-//    @JsonProperty("id")
-//    public Integer id;
-//
-//    @JsonProperty("name")
-//    public String name;
-//
-//    @JsonProperty("stock")
-//    public Integer stock;
 
-//    public Book( String name, String author, int stock) {
-////        this.id = id;
-//        this.name = name;
-//        this.author = author;
-//        this.stock = stock;
-//    }
 
 //    private Integer id;
     private String name;

@@ -17,20 +17,27 @@
     <div class="row topic-div">
         <p class="topic">Library Management System</p>
     </div>
-    	<div class=row>
-	<h1>Form</h1>
- 			<form action="addBook">
- 			<label for="name">Book name</label>
- 				<input type="text" name="name"><br>
- 				<label for="name">Author</label>
- 				<input type="text" name="author"><br>
- 				<label for="name">Stock</label>
- 				 <input type="text" name="stock"><br>
- 				 <button class="btn btn-primary" type="submit" style="width:69px">Submit</button>
- 				 <a class="btn btn-warning" href="/cancel">Cancel </a>
- 				
- 			</form>
-    	</div>
+    <div class=row>
+        <h1>Add New Book Form</h1>
+        <form class="form-group" action="addBook">
+            <label for="name">Book name</label>
+            <input class="form-control" type="text" name="name"><br>
+            <label for="name">Author</label>
+            <input class="form-control" type="text" name="author"><br>
+            <label for="name">Stock</label>
+            <input class="form-control" type="text" name="stock"><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" type="submit" style="width:100%">Submit</button>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-warning" href="/cancel" style="width:100%">Cancel </a>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
 </div>
 </body>
 </html>

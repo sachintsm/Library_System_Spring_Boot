@@ -32,10 +32,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class BooksController {
 
-    @GetMapping("/Home")
+    @GetMapping("/")
     public ModelAndView getHome() {
-  
-    	
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         String url = "http://localhost:8081/api/getall";
@@ -52,31 +50,29 @@ public class BooksController {
         modelAndView.addObject("Book", response.getBody());
         return modelAndView;
     }
-    
 
-    @RequestMapping("/addBook")
-    public RedirectView addBook(Book book){
-    		RestTemplate restTemplate = new RestTemplate();
-    	
-        	String url = "http://localhost:8081/api/addbook";
-        	ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url,book, Object.class);
 
-        	System.out.println(responseEntity); 
+    @PostMapping("/addBook")
+    public RedirectView addBook(Book book) {
+        RestTemplate restTemplate = new RestTemplate();
 
-            return new RedirectView("/Home");
- 
+        String url = "http://localhost:8081/api/addbook";
+        ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url, book, Object.class);
+
+        System.out.println(responseEntity);
+        return new RedirectView("/");
     }
-    
+
 
     @RequestMapping("/addMe")
     public String AddBook() {
-    	System.out.print("addBook");  
-    	return "AddBook";
+        System.out.println("addBook");
+        return "AddBook";
     }
-    
+
     @RequestMapping("/cancel")
     public RedirectView cancelAddBook() {
-    	return new RedirectView("/Home");
+        return new RedirectView("/");
     }
 
 }
