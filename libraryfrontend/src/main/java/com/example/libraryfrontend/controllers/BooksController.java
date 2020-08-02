@@ -52,7 +52,7 @@ public class BooksController {
     }
 
 
-    @PostMapping("/addBook")
+    @RequestMapping("/addBook")
     public RedirectView addBook(Book book) {
         RestTemplate restTemplate = new RestTemplate();
 
