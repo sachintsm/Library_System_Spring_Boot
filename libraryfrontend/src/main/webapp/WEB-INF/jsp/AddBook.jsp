@@ -28,10 +28,9 @@
             <input class="form-control" type="text" name="stock"><br>
             <div class="row">
                 <div class="col-md-6">
-                    <button class="btn btn-primary" type="submit" style="width:100%">Submit</button>
-                </div>
-                <div class="col-md-6">
-                    <a class="btn btn-warning" href="/cancel" style="width:100%">Cancel </a>
+                    <button class="btn btn-primary" type="submit" style="width:15%">Submit</button>
+               
+                    <a class="btn btn-warning" href="/cancel" style="width:15%">Cancel </a>
                 </div>
 
             </div>

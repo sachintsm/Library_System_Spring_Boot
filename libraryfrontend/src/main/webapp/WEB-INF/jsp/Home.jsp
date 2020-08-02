@@ -63,8 +63,8 @@
                             <td>${data.name}</td>
                             <td>${data.author}</td>
                             <td>${data.stock}</td>
-                            <td><a class="btn btn-warning" href="/edit">Edit Book</a></td>
-                            <td><a class="btn btn-danger" href="/delete">Delete Book</a></td>
+                            <td><a class="btn btn-warning" href="/getBook/${data.id }">Edit Book</a></td>
+                            <td><a class="btn btn-danger" href="/deleteBook/${data.id}">Delete Book</a></td>
                         </tr>
                     </c:forEach>
 
