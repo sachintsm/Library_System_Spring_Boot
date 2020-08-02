@@ -29,7 +29,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <button class="btn btn-primary" type="submit" style="width:15%">Submit</button>
-               
                     <a class="btn btn-warning" href="/cancel" style="width:15%">Cancel </a>
                 </div>
 
