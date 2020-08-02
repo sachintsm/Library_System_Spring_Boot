@@ -44,7 +44,35 @@ public class BooksController {
         System.out.println(responseEntity);
         return new RedirectView("/");
     }
+    
+    @RequestMapping("/deleteBook/{id}")
+    public RedirectView deleteBook(@PathVariable String id) {
+        RestTemplate restTemplate = new RestTemplate();
 
+        String url = "http://localhost:8081/api/delete/" + id;
+        restTemplate.delete(url);
+
+        System.out.println("This is me" + url);
+        return new RedirectView("/");
+    }
+    
+    @RequestMapping("getBook/{id}")
+    public ModelAndView getBook(@PathVariable String id ) {
+        RestTemplate restTemplate = new RestTemplate();
+        
+        String url = "http://localhost:8081/api/getBook/" + id;
+
+        Book book = restTemplate.getForObject(url, Book.class);
+        
+        System.out.print("this is me again" +book);
+    	
+        
+        ModelAndView modelAndView = new ModelAndView("AddBook");
+        modelAndView.addObject("Book", book);
+    	return modelAndView;
+    }
+    
+    
     @RequestMapping("/addMe")
     public String AddBook() {
         System.out.println("addBook");
