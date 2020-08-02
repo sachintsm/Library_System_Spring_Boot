@@ -32,6 +32,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class BooksController {
 
+    //view all the books in the library
     @GetMapping("/")
     public ModelAndView getHome() {
         RestTemplate restTemplate = new RestTemplate();
@@ -51,6 +52,8 @@ public class BooksController {
         return modelAndView;
     }
 
+    //delete books
+
 
     @PostMapping("/addBook")
     public RedirectView addBook(Book book) {
@@ -62,7 +65,6 @@ public class BooksController {
         System.out.println(responseEntity);
         return new RedirectView("/");
     }
-
 
     @RequestMapping("/addMe")
     public String AddBook() {
