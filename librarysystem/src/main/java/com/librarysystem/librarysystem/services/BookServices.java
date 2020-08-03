@@ -4,6 +4,7 @@ import com.librarysystem.librarysystem.domain.BooksDomain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface BookServices {
 
@@ -13,5 +14,9 @@ public interface BookServices {
 
     Map<String, String> deleteById(Integer id);
 
-    String findById(Integer id);
+
+    Optional<BooksDomain> findById(Integer id);
+   
+    BooksDomain findOne(Integer id);
+    
 }
