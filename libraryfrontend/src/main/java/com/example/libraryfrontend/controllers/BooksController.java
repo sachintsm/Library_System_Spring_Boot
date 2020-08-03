@@ -54,9 +54,8 @@ public class BooksController {
         return modelAndView;
     }
 
-    //delete books
 
-
+//    add books
     @RequestMapping("/addBook")
     public RedirectView addBook(Book book) {
         RestTemplate restTemplate = new RestTemplate();
@@ -68,6 +67,7 @@ public class BooksController {
         return new RedirectView("/");
     }
     
+//    delete specific book
     @RequestMapping("/deleteBook/{id}")
     public RedirectView deleteBook(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
@@ -75,25 +75,46 @@ public class BooksController {
         String url = "http://localhost:8081/api/delete/" + id;
         restTemplate.delete(url);
 
-        System.out.println("This is me" + url);
+//        System.out.println("This is me" + url);
+        
         return new RedirectView("/");
     }
     
-    @RequestMapping("getBook/{id}")
-    public ModelAndView getBook(@PathVariable String id ) {
+    
+    
+//    get book from Id
+    @RequestMapping("/getBook")
+    public ModelAndView getBook( @RequestParam(value="id") int bookId ) {
         RestTemplate restTemplate = new RestTemplate();
+        System.out.print(bookId);
         
-        String url = "http://localhost:8081/api/getBook/" + id;
+        String url = "http://localhost:8081/api/getBook/" + bookId;
 
-        Book book = restTemplate.getForObject(url, Book.class);
+        Object object = restTemplate.getForObject(url, Object.class);
         
-        System.out.print("this is me again" +book);
-    	
+//        System.out.print("this is me again" + object);
+    	    
         
-        ModelAndView modelAndView = new ModelAndView("AddBook");
-        modelAndView.addObject("Book", book);
-    	return modelAndView;
+        ModelAndView modelAndView = new ModelAndView("EditBook");
+        modelAndView.addObject("Book", object);
+        
+    	return modelAndView; 
     }
+    
+//    Update book
+    @RequestMapping("/updateBook")
+    public RedirectView updateBook(Book book, HttpServletRequest req ) {
+    	
+    	  String bookId = req.getParameter("id");
+//    	System.out.print(bookId);
+    	  RestTemplate restTemplate = new RestTemplate();
+
+          String url = "http://localhost:8081/api/update/"+ bookId;
+           restTemplate.put(url, book);
+           
+          return new RedirectView("/");
+    }
+    
     
     
     

@@ -14,4 +14,7 @@ public interface BookServices {
     String deleteById(Integer id);
 
     Optional<BooksDomain> findById(Integer id);
+    
+    BooksDomain findOne(Integer id);
+    
 }

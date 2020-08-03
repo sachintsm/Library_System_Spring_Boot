@@ -39,4 +39,8 @@ public class BookServiceImpl implements BookServices {
     public Optional<BooksDomain> findById(Integer id) {
         return booksRepository.findById(id);
     }
+    
+    public BooksDomain findOne(Integer id) {
+		return booksRepository.findById(id).get();
+	}
 }
