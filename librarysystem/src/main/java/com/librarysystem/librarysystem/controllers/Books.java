@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.librarysystem.librarysystem.services.BookServices;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -28,13 +29,14 @@ public class Books {
     //Add book data to the table
     @PostMapping("/addbook")
     public BooksDomain addBook(@RequestBody BooksDomain bookData) {
+        System.out.println(bookServices.save(bookData));
         return bookServices.save(bookData);
     }
 
     //delete book data
     @DeleteMapping("/delete/{id}")
-    public String deleteBook(@PathVariable Integer id) {
-        System.out.println("Hello");
+    @ResponseBody
+    public Map<String, String> deleteBook(@PathVariable Integer id) {
         return bookServices.deleteById(id);
     }
 
