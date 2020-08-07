@@ -20,7 +20,7 @@
     <div class="button-bar">
         <div class="row">
             <div class="col-md-2">
-                <Form action="IssueBook">
+                <Form action="issueBook">
                     <button type="submit" class="btn btn-primary">Issue Book</button>
                 </Form>
             </div>

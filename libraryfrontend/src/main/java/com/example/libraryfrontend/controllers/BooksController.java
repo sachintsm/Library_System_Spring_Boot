@@ -1,6 +1,7 @@
 package com.example.libraryfrontend.controllers;
 
 import com.example.libraryfrontend.entity.Book;
+import com.example.libraryfrontend.entity.IssueBook;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class BooksController {
         String url = "http://localhost:8081/api/addbook";
         ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url, book, Object.class);
 
-        System.out.println(responseEntity);
+//        System.out.println(responseEntity);
         return new RedirectView("/");
     }
     
@@ -84,30 +85,22 @@ public class BooksController {
         return new RedirectView("/");
     }
 
-    @RequestMapping("/deleteBook/{id}")
-    public RedirectView deleteBook(@PathVariable String id) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        String url = "http://localhost:8081/api/delete/" + id;
-        restTemplate.delete(url);
-
-        System.out.println("This is me" + url);
-        return new RedirectView("/");
+    //render issue book page
+    @RequestMapping("/issueBook")
+    public String IssueVook(){
+        return "IssueBook";
     }
 
-    @RequestMapping("getBook/{id}")
-    public ModelAndView getBook(@PathVariable String id ) {
+    //submit issue book
+    @RequestMapping("/issueBookClick")
+    public RedirectView issueBookClick(IssueBook issueBook) {
         RestTemplate restTemplate = new RestTemplate();
-
-        String url = "http://localhost:8081/api/getBook/" + id;
-
-        Book book = restTemplate.getForObject(url, Book.class);
-
-        System.out.print("this is me again" +book);
-
-        ModelAndView modelAndView = new ModelAndView("AddBook");
-        modelAndView.addObject("Book", book);
-        return modelAndView;
+        System.out.println(issueBook);
+        String url = "http://localhost:8081/api/issuebook";
+        ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url, issueBook, Object.class);
+        System.out.println(responseEntity);
+//        return null;
+        return new RedirectView("/");
     }
 
 }
