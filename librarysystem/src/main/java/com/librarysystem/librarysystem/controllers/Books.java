@@ -1,6 +1,8 @@
 package com.librarysystem.librarysystem.controllers;
 
 import com.librarysystem.librarysystem.domain.BooksDomain;
+import com.librarysystem.librarysystem.domain.IssueDomain;
+import com.librarysystem.librarysystem.services.IssueServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,8 @@ public class Books {
     @Autowired
     private BookServices bookServices;
 
+    @Autowired
+    private IssueServices issueServices;
 
     //get all books details
     @GetMapping("/getall")
@@ -45,6 +49,15 @@ public class Books {
     public Optional<BooksDomain> getBookById(@PathVariable Integer id) {
         return bookServices.findById(id);
     }
+
+    //add issue book data
+    @PostMapping("/issuebook")
+    public IssueDomain issueBook(@RequestBody IssueDomain issueData){
+        System.out.println(issueData);
+//        System.out.println(issueService.save(issueData));
+        return issueServices.save(issueData);
+//        return issueData;
+
     
     @PutMapping("update/{id}")
     public ResponseEntity<BooksDomain> updateBook(@PathVariable Integer id,  @Valid @RequestBody BooksDomain bookDetails){
