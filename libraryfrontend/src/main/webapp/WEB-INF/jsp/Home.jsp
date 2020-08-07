@@ -18,7 +18,7 @@
         <p class="topic">Library Management System</p>
     </div>
     <div class="button-bar">
-        <div class="row">
+        <div class="row ">
             <div class="col-md-2">
                 <Form action="issueBook">
                     <button type="submit" class="btn btn-primary">Issue Book</button>
@@ -65,7 +65,7 @@
                             <td>${data.stock}</td>
                             <td>
                             <form action="getBook" method="get">
-								<button class="btn btn-primary" name="id" value="${data.id}">edit</button>
+								<button class="btn btn-primary" name="id" value="${data.id}">Edit Book</button>
 							</form>
 							</td>
                             <td><a class="btn btn-danger" href="/deleteBook/${data.id}">Delete Book</a></td>
