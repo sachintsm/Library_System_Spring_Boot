@@ -7,6 +7,7 @@ import com.librarysystem.librarysystem.services.BookServices;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,11 +43,12 @@ public class BookServiceImpl implements BookServices {
     }
 
     @Override
-    public String findById(Integer id) {
-        if(booksRepository.findById(id).isPresent()){
-            return String.valueOf(booksRepository.findById(id));
-        }else{
-            return ("Book Not Found!");
-        }
+    public Optional<BooksDomain> findById(Integer id) {
+        return booksRepository.findById(id);
     }
+    
+    
+    public BooksDomain findOne(Integer id) {
+		return booksRepository.findById(id).get();
+	}
 }
