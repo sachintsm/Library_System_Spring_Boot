@@ -54,8 +54,20 @@ public class Books {
     @PostMapping("/issuebook")
     public IssueDomain issueBook(@RequestBody IssueDomain issueData){
         System.out.println(issueData);
-//        System.out.println(issueService.save(issueData));
+        System.out.println(issueServices.save(issueData));
         return issueServices.save(issueData);
+    }
+
+    //get all book issues
+    @GetMapping("/getIssues")
+    public List<IssueDomain> getAllIssues(){
+        return issueServices.findAllIssues();
+    }
+
+    //delete issue
+    @DeleteMapping("/deleteIssue/{id}")
+    public Map<String, String> deleteIssue(@PathVariable Integer id){
+        return issueServices.deleteById(id);
 //        return issueData;
 
     

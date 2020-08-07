@@ -126,7 +126,38 @@ public class BooksController {
         String url = "http://localhost:8081/api/issuebook";
         ResponseEntity<Object> responseEntity = restTemplate.postForEntity(url, issueBook, Object.class);
         System.out.println(responseEntity);
-//        return null;
-        return new RedirectView("/");
+        return new RedirectView("/issueBook");
+    }
+
+    //get issue book list
+    @GetMapping("/issueBook")
+    public ModelAndView getIssues(){
+        System.out.println("Call Now");
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        String url = "http://localhost:8081/api/getIssues";
+
+        HttpEntity<String> entity = new HttpEntity<String>(headers);
+        ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
+        if (response.getStatusCode() == HttpStatus.OK) {
+            System.out.println(response.getBody());
+        } else {
+            System.out.println("Error");
+        }
+
+        ModelAndView modelAndView = new ModelAndView("IssueBook");
+        modelAndView.addObject("IssueBook", response.getBody());
+        return modelAndView;
+    }
+
+    //delete issue book
+    @RequestMapping("/deleteIssue/{id}")
+    public RedirectView deleteIsse(@PathVariable String id){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/deleteIssue/"+id;
+        restTemplate.delete(url);
+
+        System.out.println("Delete Issue");
+        return new RedirectView("/issueBook");
     }
 }
