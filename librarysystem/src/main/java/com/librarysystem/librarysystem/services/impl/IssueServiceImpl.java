@@ -27,17 +27,6 @@ public class IssueServiceImpl implements IssueServices {
         return issueRepository.findAll();
     }
 
-    @Override
-    public Map<String, String> deleteById(Integer id){
-        String msg;
-        if(issueRepository.findById(id).isPresent()){
-            issueRepository.deleteById(id);
-            msg = "Successfully Deleted!";
-        }else{
-            msg = "Deleted Not Successful!";
-        }
-        return Collections.singletonMap("msg", msg);
-    }
-
+ 
 
 }

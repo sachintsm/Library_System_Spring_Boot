@@ -64,12 +64,7 @@ public class Books {
         return issueServices.findAllIssues();
     }
 
-    //delete issue
-    @DeleteMapping("/deleteIssue/{id}")
-    public Map<String, String> deleteIssue(@PathVariable Integer id) {
-        return issueServices.deleteById(id);
-//        return issueData;
-    }
+
     
     @PutMapping("update/{id}")
     public ResponseEntity<BooksDomain> updateBook(@PathVariable Integer id,  @Valid @RequestBody BooksDomain bookDetails){
