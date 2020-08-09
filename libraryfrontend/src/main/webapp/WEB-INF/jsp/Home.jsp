@@ -32,14 +32,14 @@
             <div class="col-md-3"></div>
             <div class="col-md-5">
                 <div class="row">
-                    <form onsubmit="event.preventDefault(); onFormSubmit();">
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Search by ID"/>
+                    <form action="search">
+                     	<div class="col-md-9">
+                            <input type="text" class="form-control" name="id" placeholder="Search by ID"/>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary">Search</button>
+                            <button class="btn btn-primary" name="id">Search</button>
                         </div>
-                    </form>
+					</form>
                 </div>
             </div>
 
