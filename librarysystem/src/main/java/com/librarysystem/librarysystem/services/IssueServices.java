@@ -14,4 +14,6 @@ public interface IssueServices {
     Map<String, String> deleteById(Integer id);
 
     Optional<IssueDomain> findById(Integer id);
+
+    IssueDomain findOne(Integer id);
 }

@@ -45,4 +45,9 @@ public class IssueServiceImpl implements IssueServices {
     public Optional<IssueDomain> findById(Integer id) {
         return issueRepository.findById(id);
     }
+
+    public IssueDomain findOne(Integer id) {
+        return issueRepository.findById(id).get();
+    }
+
 }

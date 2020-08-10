@@ -91,4 +91,19 @@ public class Books {
     public Optional<IssueDomain> getIssueById(@PathVariable Integer id) {
         return issueServices.findById(id);
     }
+
+
+    @PutMapping("updateIssue/{id}")
+    public ResponseEntity<IssueDomain> updateIssue(@PathVariable Integer id,  @Valid @RequestBody IssueDomain issueDomain){
+        IssueDomain issue = issueServices.findOne(id);
+        if(issue == null) {
+            return ResponseEntity.notFound().build();
+        }
+        issue.setBookId(issueDomain.getBookId());
+        issue.setDate(issueDomain.getDate());
+        issue.setUserName(issueDomain.getUserName());
+        IssueDomain updateIssue = issueServices.save(issue);
+        return ResponseEntity.ok().body(updateIssue);
+    }
+
 }
