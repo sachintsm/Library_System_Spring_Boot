@@ -2,16 +2,14 @@ package com.example.libraryfrontend.controllers;
 
 import com.example.libraryfrontend.entity.Book;
 
-import com.example.libraryfrontend.entity.IssueBook;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -41,7 +39,7 @@ public class BooksController {
 
 //    add books
     @RequestMapping("/addBook")
-    public RedirectView addBook(Book book) {
+    public RedirectView addBook() {
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "http://localhost:8081/api/addbook";
@@ -178,6 +176,25 @@ public class BooksController {
         restTemplate.delete(url);
 
         return new RedirectView("/issueBook");
+    }
+
+    //    get book from Id
+    @RequestMapping("/getBook")
+    public ModelAndView getIssue( @RequestParam(value="id") int issueId ) {
+        RestTemplate restTemplate = new RestTemplate();
+        System.out.print(issueId);
+
+        String url = "http://localhost:8081/api/getIssue/" + issueId;
+
+        Object object = restTemplate.getForObject(url, Object.class);
+
+//        System.out.print("this is me again" + object);
+
+
+        ModelAndView modelAndView = new ModelAndView("EditIssue");
+        modelAndView.addObject("Issue", object);
+
+        return modelAndView;
     }
 
 }
