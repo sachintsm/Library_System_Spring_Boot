@@ -85,6 +85,25 @@ public class BooksController {
     	return modelAndView; 
     }
     
+//  	get book from Id
+	  @RequestMapping("/search")
+	  public ModelAndView search( @RequestParam(value="id") int bookId ) {
+	      RestTemplate restTemplate = new RestTemplate();
+	      System.out.print(bookId);
+	      
+	      String url = "http://localhost:8081/api/getBook/" + bookId;
+	
+	      Object object = restTemplate.getForObject(url, Object.class);
+	      
+	//      System.out.print("this is me again" + object);
+	  	    
+	      
+	      ModelAndView modelAndView = new ModelAndView("Search");
+	      modelAndView.addObject("Book", object);
+	      
+	  	  return modelAndView; 
+	  }
+    
 //    Update book
     @RequestMapping("/updateBook")
     public RedirectView updateBook(Book book, HttpServletRequest req ) {
