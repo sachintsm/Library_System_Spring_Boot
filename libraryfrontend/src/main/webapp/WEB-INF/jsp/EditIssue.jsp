@@ -16,12 +16,12 @@
         <h1>Update Issue</h1>
         <form class="form-group" action="updateIssue">
             <input id="id" name="id" type="hidden" value="${Issue.id}"/>
-            <label for="name">Book name</label>
-            <input class="form-control" type="text" name="name" value="${Issue.name}"><br>
-            <label for="name">Author</label>
-            <input class="form-control" type="text" name="author" value="${Issue.author}"><br>
-            <label for="name">Stock</label>
-            <input class="form-control" type="text" name="stock" value="${Issue.stock}"><br>
+            <label for="name">User Name</label>
+            <input class="form-control" type="text" name="author" value="${Issue.userName}"><br>
+            <label for="name">Date</label>
+            <input class="form-control" type="text" name="stock" value="${Issue.date}"><br>
+            <label for="name">Book Id</label>
+            <input class="form-control" type="text" name="stock" value="${Issue.bookId}"><br>
             <div class="row">
                 <div class="col-md-6">
                     <button class="btn btn-primary" type="submit" style="width:15%">Update</button>

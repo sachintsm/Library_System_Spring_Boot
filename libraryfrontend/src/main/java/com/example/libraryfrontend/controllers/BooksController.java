@@ -39,7 +39,7 @@ public class BooksController {
 
 //    add books
     @RequestMapping("/addBook")
-    public RedirectView addBook() {
+    public RedirectView addBook(Book book) {
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "http://localhost:8081/api/addbook";
@@ -179,7 +179,7 @@ public class BooksController {
     }
 
     //    get book from Id
-    @RequestMapping("/getBook")
+    @RequestMapping("/getIssue")
     public ModelAndView getIssue( @RequestParam(value="id") int issueId ) {
         RestTemplate restTemplate = new RestTemplate();
         System.out.print(issueId);
@@ -195,6 +195,20 @@ public class BooksController {
         modelAndView.addObject("Issue", object);
 
         return modelAndView;
+    }
+
+//    Update Issue
+    @RequestMapping("/updateIssue")
+    public RedirectView updateIssue(IssueBook issueBook, HttpServletRequest req ) {
+
+        String issueId = req.getParameter("id");
+//    	System.out.print(bookId);
+        RestTemplate restTemplate = new RestTemplate();
+
+        String url = "http://localhost:8081/api/getIssue/"+ issueId;
+        restTemplate.put(url, issueBook);
+
+        return new RedirectView("/");
     }
 
 }

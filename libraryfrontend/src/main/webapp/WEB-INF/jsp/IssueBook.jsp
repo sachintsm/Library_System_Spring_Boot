@@ -54,7 +54,8 @@
                         <td>${data.userName}</td>
                         <td>${data.bookId}</td>
                         <td>${data.date}</td>
-                        <td><a class="btn btn-danger" href="/deleteIssue/${data.id}">Delete Book</a></td>
+                        <td><a class="btn btn-danger" href="/deleteIssue/${data.id}">Delete Issue</a></td>
+                        <td><a class="btn btn-danger" href="/editIssue/${data.id}">Edit Issue</a></td>
                     </tr>
                 </c:forEach>
 
