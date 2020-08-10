@@ -1,6 +1,7 @@
 package com.librarysystem.librarysystem.services.impl;
 
 
+import com.librarysystem.librarysystem.domain.BooksDomain;
 import com.librarysystem.librarysystem.domain.IssueDomain;
 import com.librarysystem.librarysystem.repositories.IssueRepository;
 import com.librarysystem.librarysystem.services.IssueServices;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class IssueServiceImpl implements IssueServices {
@@ -37,5 +39,10 @@ public class IssueServiceImpl implements IssueServices {
             msg = "Deleted Not Successful!";
         }
         return Collections.singletonMap("msg", msg);
+    }
+
+    @Override
+    public Optional<IssueDomain> findById(Integer id) {
+        return issueRepository.findById(id);
     }
 }

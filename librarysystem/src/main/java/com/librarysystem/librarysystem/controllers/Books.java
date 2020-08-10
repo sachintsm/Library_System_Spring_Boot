@@ -85,4 +85,10 @@ public class Books {
     public Map<String, String> deleteIssue(@PathVariable Integer id) {
         return issueServices.deleteById(id);
     }
+
+    //find by id
+    @GetMapping("/getIssue/{id}")
+    public Optional<IssueDomain> getIssueById(@PathVariable Integer id) {
+        return issueServices.findById(id);
+    }
 }

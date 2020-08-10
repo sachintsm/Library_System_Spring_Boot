@@ -4,6 +4,7 @@ import com.librarysystem.librarysystem.domain.IssueDomain;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface IssueServices {
     IssueDomain save(IssueDomain issueData);
@@ -11,4 +12,6 @@ public interface IssueServices {
     List<IssueDomain> findAllIssues();
 
     Map<String, String> deleteById(Integer id);
+
+    Optional<IssueDomain> findById(Integer id);
 }
