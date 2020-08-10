@@ -3,7 +3,8 @@ package com.librarysystem.librarysystem.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="books")
+@Table(name = "books")
+//@EntityListeners(AuditingEntityListener.class)
 public class BooksDomain {
 
     @Id
@@ -17,7 +18,7 @@ public class BooksDomain {
     @Column(name = "book_author")
     private String author;
 
-    @Column(name="book_stock")
+    @Column(name = "book_stock")
     private Integer stock;
 
     public String getAuthor() {
@@ -36,7 +37,9 @@ public class BooksDomain {
         this.stock = stock;
     }
 
-    public String getName() {return name;    }
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;

@@ -18,28 +18,28 @@
         <p class="topic">Library Management System</p>
     </div>
     <div class="button-bar">
-        <div class="row">
+        <div class="row ">
             <div class="col-md-2">
-                <Form action="IssueBook">
+                <Form action="issueBook">
                     <button type="submit" class="btn btn-primary">Issue Book</button>
                 </Form>
             </div>
             <div class="col-md-2">
-                <Form action="AddBook">
+                <Form action="addMe">
                     <button type="submit" class="btn btn-primary">Add Book</button>
                 </Form>
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-5">
                 <div class="row">
-                    <form onsubmit="event.preventDefault(); onFormSubmit();">
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="Search by ID"/>
+                    <form action="search">
+                     	<div class="col-md-9">
+                            <input type="text" class="form-control" name="id" placeholder="Search by ID"/>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary">Search</button>
+                            <button class="btn btn-primary" name="id">Search</button>
                         </div>
-                    </form>
+					</form>
                 </div>
             </div>
 
@@ -63,8 +63,12 @@
                             <td>${data.name}</td>
                             <td>${data.author}</td>
                             <td>${data.stock}</td>
-                            <td><a class="btn btn-warning" href="/edit">Edit Book</a></td>
-                            <td><a class="btn btn-danger" href="/delete">Delete Book</a></td>
+                            <td>
+                            <form action="getBook" method="get">
+								<button class="btn btn-primary" name="id" value="${data.id}">Edit Book</button>
+							</form>
+							</td>
+                            <td><a class="btn btn-danger" href="/deleteBook/${data.id}">Delete Book</a></td>
                         </tr>
                     </c:forEach>
 
