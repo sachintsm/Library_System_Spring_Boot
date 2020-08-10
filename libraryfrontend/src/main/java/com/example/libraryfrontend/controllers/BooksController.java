@@ -150,4 +150,15 @@ public class BooksController {
         return modelAndView;
     }
 
+    @RequestMapping("deleteIssue/{id}")
+    public RedirectView deleteIssue(@PathVariable String id){
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        String url = "http://localhost:8081/api/deleteIssue" + id;
+
+        restTemplate.delete(url);
+
+        return new RedirectView("/issueBook");
+    }
+
 }

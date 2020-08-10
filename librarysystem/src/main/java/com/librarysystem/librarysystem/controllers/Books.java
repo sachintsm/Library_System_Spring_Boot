@@ -41,6 +41,7 @@ public class Books {
     @DeleteMapping("/delete/{id}")
     @ResponseBody
     public Map<String, String> deleteBook(@PathVariable Integer id) {
+
         return bookServices.deleteById(id);
     }
 
@@ -48,6 +49,20 @@ public class Books {
     @GetMapping("/getBook/{id}")
     public Optional<BooksDomain> getBookById(@PathVariable Integer id) {
         return bookServices.findById(id);
+    }
+
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<BooksDomain> updateBook(@PathVariable Integer id,  @Valid @RequestBody BooksDomain bookDetails){
+        BooksDomain book = bookServices.findOne(id);
+        if(book == null) {
+            return ResponseEntity.notFound().build();
+        }
+        book.setName(bookDetails.getName());
+        book.setAuthor(bookDetails.getAuthor());
+        book.setStock(bookDetails.getStock());
+        BooksDomain updateBook = bookServices.save(book);
+        return ResponseEntity.ok().body(updateBook);
     }
 
     //add issue book data
@@ -65,17 +80,9 @@ public class Books {
     }
 
 
-    
-    @PutMapping("update/{id}")
-    public ResponseEntity<BooksDomain> updateBook(@PathVariable Integer id,  @Valid @RequestBody BooksDomain bookDetails){
-    	BooksDomain book = bookServices.findOne(id);
-		if(book == null) {
-			return ResponseEntity.notFound().build();
-		}
-		book.setName(bookDetails.getName());
-		book.setAuthor(bookDetails.getAuthor());
-		book.setStock(bookDetails.getStock());
-		BooksDomain updateBook = bookServices.save(book);
-		return ResponseEntity.ok().body(updateBook);
+    //delete issue
+    @DeleteMapping("/deleteIssue/{id}")
+    public Map<String, String> deleteIssue(@PathVariable Integer id) {
+        return issueServices.deleteById(id);
     }
 }

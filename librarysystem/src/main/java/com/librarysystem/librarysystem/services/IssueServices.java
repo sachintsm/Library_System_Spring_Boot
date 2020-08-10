@@ -10,5 +10,5 @@ public interface IssueServices {
 
     List<IssueDomain> findAllIssues();
 
-
+    Map<String, String> deleteById(Integer id);
 }
