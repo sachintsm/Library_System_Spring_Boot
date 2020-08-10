@@ -113,7 +113,7 @@ public class BooksController {
     	  RestTemplate restTemplate = new RestTemplate();
 
           String url = "http://localhost:8081/api/update/"+ bookId;
-           restTemplate.put(url, book);
+          restTemplate.put(url, book);
            
           return new RedirectView("/");
     }
