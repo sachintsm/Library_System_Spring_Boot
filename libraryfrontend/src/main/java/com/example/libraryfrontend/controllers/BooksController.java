@@ -136,6 +136,12 @@ public class BooksController {
     public String IssueVook(){
         return "IssueBook";
     }
+    
+  //render user page
+    @RequestMapping("/userPage")
+    public String userPage(){
+        return "UserPage";
+    }
 
     //submit issue book
     @RequestMapping("/issueBookClick")
