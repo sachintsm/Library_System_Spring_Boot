@@ -29,6 +29,11 @@
                     <button type="submit" class="btn btn-primary">Add Book</button>
                 </Form>
             </div>
+            <div class="col-md-2">
+                <Form action="userPage">
+                    <button type="submit" class="btn btn-primary">Users</button>
+                </Form>
+            </div>
             <div class="col-md-3"></div>
             <div class="col-md-5">
                 <div class="row">
