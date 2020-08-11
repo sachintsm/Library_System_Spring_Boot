@@ -49,5 +49,4 @@ public class IssueServiceImpl implements IssueServices {
     public IssueDomain findOne(Integer id) {
         return issueRepository.findById(id).get();
     }
-
 }

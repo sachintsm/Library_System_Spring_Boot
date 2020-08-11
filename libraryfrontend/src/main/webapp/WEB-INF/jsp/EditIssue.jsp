@@ -17,16 +17,16 @@
         <form class="form-group" action="updateIssue">
             <input id="id" name="id" type="hidden" value="${Issue.id}"/>
             <label for="name">User Name</label>
-            <input class="form-control" type="text" name="author" value="${Issue.userName}"><br>
+            <input class="form-control" type="text" name="userName" value="${Issue.userName}"><br>
             <label for="name">Date</label>
-            <input class="form-control" type="text" name="stock" value="${Issue.date}"><br>
+            <input class="form-control" type="text" name="date" value="${Issue.date}"><br>
             <label for="name">Book Id</label>
-            <input class="form-control" type="text" name="stock" value="${Issue.bookId}"><br>
+            <input class="form-control" type="text" name="bookId" value="${Issue.bookId}"><br>
             <div class="row">
                 <div class="col-md-6">
                     <button class="btn btn-primary" type="submit" style="width:15%">Update</button>
 
-                    <a class="btn btn-warning" href="/cancel" style="width:15%">Cancel </a>
+                    <a class="btn btn-warning" href="/cancelIssue" style="width:15%">Cancel </a>
                 </div>
 
             </div>

@@ -44,18 +44,26 @@
                     <th>User Name</th>
                     <th>Book ID</th>
                     <th>Date</th>
+                    <th>Edit</th>
                     <th>Delete</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${IssueBook}" var="data">
                     <tr>
-                        <td>${data.id}</td>
-                        <td>${data.userName}</td>
-                        <td>${data.bookId}</td>
-                        <td>${data.date}</td>
-                        <td><a class="btn btn-danger" href="/deleteIssue/${data.id}">Delete Issue</a></td>
-                        <td><a class="btn btn-danger" href="/editIssue/${data.id}">Edit Issue</a></td>
+                        <td class="col-md-1">${data.id}</td>
+                        <td class="col-md-4">${data.userName}</td>
+                        <td class="col-md-1">${data.bookId}</td>
+                        <td class="col-md-2">${data.date}</td>
+                        <td class="col-md-2">
+                            <form action="editIssue" method="get">
+                                <button class="btn btn-primary" name="id" value="${data.id}">Edit Issue</button>
+                            </form>
+                        </td>
+                        <td class="col-md-2">
+                            <a class="btn btn-danger" href="/deleteIssue/${data.id}">Delete Issue</a>
+                        </td>
                     </tr>
                 </c:forEach>
 

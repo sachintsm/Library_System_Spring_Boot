@@ -7,7 +7,7 @@ public class IssueBook {
 
     private String userName;
     private Integer bookId;
-    private String Date;
+    private String date;
 
     public String getUserName() {
         return userName;
@@ -26,10 +26,10 @@ public class IssueBook {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.date = date;
     }
 }

@@ -95,7 +95,9 @@ public class Books {
 
     @PutMapping("updateIssue/{id}")
     public ResponseEntity<IssueDomain> updateIssue(@PathVariable Integer id,  @Valid @RequestBody IssueDomain issueDomain){
+        System.out.println("Hello");
         IssueDomain issue = issueServices.findOne(id);
+        System.out.println(issue);
         if(issue == null) {
             return ResponseEntity.notFound().build();
         }
@@ -104,6 +106,7 @@ public class Books {
         issue.setUserName(issueDomain.getUserName());
         IssueDomain updateIssue = issueServices.save(issue);
         return ResponseEntity.ok().body(updateIssue);
+
     }
 
 }
