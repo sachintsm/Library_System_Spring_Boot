@@ -11,6 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body class="container-fluid">
+<div class="row topic-div">
+    <p class="topic">Library Management System - Book Details</p>
+</div>
 <div class="container">
     <div class=row>
         <h1>Searched Book</h1>

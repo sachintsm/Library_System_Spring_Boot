@@ -13,28 +13,28 @@
 
 </head>
 <body class="container-fluid">
+<div class="row topic-div">
+    <p class="topic">Library Management System - Issue Book</p>
+</div>
 <div class="container">
-    <div class="row topic-div">
-        <p class="topic">Library Management System</p>
-    </div>
-    <div class="button-bar">
-        <div class="row ">
+    <div class="button-bar" style="width: 100%">
+        <div class="row">
             <div class="col-md-2">
                 <Form action="issueBook">
-                    <button type="submit" class="btn btn-primary">Issue Book</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Issue Book</button>
                 </Form>
             </div>
             <div class="col-md-2">
                 <Form action="addMe">
-                    <button type="submit" class="btn btn-primary">Add Book</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Add Book</button>
                 </Form>
             </div>
             <div class="col-md-2">
                 <Form action="userPage">
-                    <button type="submit" class="btn btn-primary">Users</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Users</button>
                 </Form>
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
             <div class="col-md-5">
                 <div class="row">
                     <form action="search">
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" name="id" placeholder="Search by ID"/>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary" name="id">Search</button>
+                            <button class="btn btn-primary" name="id" style="width: 100%">Search</button>
                         </div>
 					</form>
                 </div>
@@ -70,10 +70,10 @@
                             <td>${data.stock}</td>
                             <td>
                             <form action="getBook" method="get">
-								<button class="btn btn-primary" name="id" value="${data.id}">Edit Book</button>
+								<button class="btn btn-primary" style="width: 100%" name="id" value="${data.id}">Edit Book</button>
 							</form>
 							</td>
-                            <td><a class="btn btn-danger" href="/deleteBook/${data.id}">Delete Book</a></td>
+                            <td><a class="btn btn-danger" style="width: 100%" href="/deleteBook/${data.id}">Delete Book</a></td>
                         </tr>
                     </c:forEach>
 

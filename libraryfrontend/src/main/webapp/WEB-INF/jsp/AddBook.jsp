@@ -13,10 +13,11 @@
 
 </head>
 <body class="container-fluid">
+<div class="row topic-div">
+    <p class="topic">Library Management System - Add Book</p>
+</div>
 <div class="container">
-    <div class="row topic-div">
-        <p class="topic">Library Management System</p>
-    </div>
+
     <div class=row>
         <h1>Add New Book Form</h1>
         <form class="form-group" action="addBook">

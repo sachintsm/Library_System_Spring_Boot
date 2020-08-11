@@ -13,48 +13,51 @@
 
 </head>
 <body class="container-fluid">
+<div class="row topic-div">
+    <p class="topic">Library Management System - Users</p>
+</div>
 <div class="container">
     <div class=row>
-        <h1>Users</h1>
-        	<div class="table-div">
-                <table class="table table-striped" id="userList">
-                    <thead>
+        <div class="table-div">
+            <table class="table table-striped" id="userList">
+                <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${User}" var="data">
                     <tr>
-                        <th>User ID</th>
-                        <th>First Name</th>
-                        <th>Second Name</th>
-                        <th>Address</th>
-                        <th>Telephone</th>
-                        <th>Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${User}" var="data">
-                        <tr>
-                            <td>${data.userId}</td>
-                            <td>${data.fname}</td>
-                            <td>${data.lname}</td>
-                            <td>${data.address}</td>
-                            <td>${data.telephone}</td>
-                            <td>${data.email}</td>
-                            <td>
+                        <td>${data.userId}</td>
+                        <td>${data.fname}</td>
+                        <td>${data.lname}</td>
+                        <td>${data.address}</td>
+                        <td>${data.telephone}</td>
+                        <td>${data.email}</td>
+                        <td>
                             <form action="getUser" method="get">
-								<button class="btn btn-primary" name="id" value="${data.userId}">Edit</button>
-							</form>
-							</td>
-                            <td><a class="btn btn-danger" href="/deleteUser/${data.userId}">Delete</a></td>
-                        </tr>
-                    </c:forEach>
+                                <button class="btn btn-primary" name="id" value="${data.userId}">Edit</button>
+                            </form>
+                        </td>
+                        <td><a class="btn btn-danger" href="/deleteUser/${data.userId}">Delete</a></td>
+                    </tr>
+                </c:forEach>
 
-                    </tbody>
-                </table>
-            </div><div class="row">
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <a class="btn btn-primary" href="/" style="width:15%">Home </a>
             </div>
 
-            </div>
+        </div>
     </div>
-    </div>
+</div>
 </body>
 </html>
