@@ -28,7 +28,7 @@
             <input class="form-control" type="text" name="stock" value="${Book.stock}" disabled><br>
             <div class="row">
                 <div class="col-md-6">
-                    <a class="btn btn-primary" href="/getBook?id=${Book.id}" style="width:15%">Update </a>
+<%--                    <a class="btn btn-primary" href="/getBook?id=${Book.id}" style="width:15%">Update </a>--%>
                     <a class="btn btn-info" href="/" style="width:15%">Home </a>
                 </div>
 

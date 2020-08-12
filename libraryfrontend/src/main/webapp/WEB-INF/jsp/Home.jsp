@@ -14,7 +14,7 @@
 </head>
 <body class="container-fluid">
 <div class="row topic-div">
-    <p class="topic">Library Management System - Issue Book</p>
+    <p class="topic">Library Management System - Home</p>
 </div>
 <div class="container">
     <div class="button-bar" style="width: 100%">

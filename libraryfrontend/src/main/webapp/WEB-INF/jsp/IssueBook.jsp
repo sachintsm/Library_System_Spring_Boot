@@ -19,7 +19,7 @@
 <div class="container">
 
     <div class=row>
-        <h1>Add New Book Form</h1>
+        <h1>Add Issue Book</h1>
         <form class="form-group" action="issueBookClick">
             <label for="name">User name</label>
             <input class="form-control" type="text" name="userName"><br>
